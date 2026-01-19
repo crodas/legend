@@ -1,0 +1,35 @@
+[package]
+name = "legend"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Strict, composable saga VM for sequential workflows with compensation"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cesare/legend"
+documentation = "https://docs.rs/legend"
+keywords = ["saga", "workflow", "orchestration", "async", "compensation"]
+categories = ["asynchronous", "concurrency"]
+exclude = [".claude/", ".github/"]
+
+[features]
+default = []
+tracing = ["dep:tracing"]
+sled = ["dep:sled"]
+
+[dependencies]
+async-trait = "0.1.89"
+parking_lot = "0.12"
+paste = "1.0.15"
+serde = { version = "1.0.228", features = ["derive", "rc"] }
+serde_json = "1.0.145"
+sled = { version = "0.34", optional = true }
+thiserror = "2.0.17"
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "sync", "time"] }
+tracing = { version = "0.1", optional = true }
+uuid = { version = "1", features = ["v4", "serde"] }
+
+[dev-dependencies]
+sled = "0.34"
+tempfile = "3"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "test-util"] }

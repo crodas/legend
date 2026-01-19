@@ -1,0 +1,14 @@
+# Build
+target/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude Code (local settings only)
+.claude/settings.local.json
